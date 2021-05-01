@@ -1,0 +1,17 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAADQ3QAAAAAAAA0AAP8AAADQAAAA/wAAAA0A7uD/AADQDuDu7v8AAO3u4O7u/wAAju7u7u7/AADu7+7u7v8AAI7u7u7u/wAA7u7g7u7/AADtDuDu7v8AANAAAO7g/wAAAA0AAAD/AAAA0AAAAAAAAAAA3Q0AAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Bunny-Rabbit-collin_sparkles"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAkAkAAAAAAACZCQAAAAAAkOkOAAAAAACZ6Q4AAAAAkOmeCQAACQCZ6e4OAACZmZmZ6Q4AAJmZmZmZCQAACQCZmekOAAAAAJDp7g4AAAAAAOmeCQAAAAAAkOkOAAAAAAAA6Q4AAAAAAACQCQAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "ChocFlask-kevmcdonk"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
