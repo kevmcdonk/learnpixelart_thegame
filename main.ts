@@ -34,7 +34,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Bumper, function (sprite, otherS
 })
 function initializeAnimations () {
     initializeHeroAnimations()
-    initializeCoinAnimation()
+    //initializeCoinAnimation()
     initializeFlierAnimations()
 }
 function giveIntroduction () {
@@ -84,23 +84,24 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 function initializeCoinAnimation () {
     coinAnimation = animation.createAnimation(ActionKind.Idle, 200)
     coinAnimation.addAnimationFrame(img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . f f f f . . . . . . 
-        . . . . f f 5 5 5 5 f f . . . . 
-        . . . . f 5 5 5 5 5 5 f . . . . 
-        . . . f 5 5 5 4 4 5 5 5 f . . . 
-        . . . f 5 5 5 4 4 5 5 5 f . . . 
-        . . . f 5 5 5 4 4 5 5 5 f . . . 
-        . . . f 5 5 5 4 4 5 5 5 f . . . 
-        . . . . f 5 5 5 5 5 5 f . . . . 
-        . . . . f f 5 5 5 5 f f . . . . 
-        . . . . . . f f f f . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
+    e e e e e e e e e e e e e e e e
+    e e e e e e e e e e e e e e e e
+    e e e e e e d d 4 4 4 e e e e e
+    e e e e e d d 4 4 4 4 e e e e e
+    e e e e d 4 4 e 4 e 4 e 4 e e e
+    e e e d e e 4 4 f 4 4 e e e e e
+    e e d e e e 4 4 4 4 e e e e 4 e
+    e e d e e e e 4 4 e e e e e 4 e
+    e d 4 e e d 4 4 4 4 4 e e e e 4
+    e 4 4 e d 4 e 4 4 4 e 4 e e e 4
+    4 4 e e d 4 4 4 4 4 4 4 e e e 4
+    d 4 e e e 4 e 4 4 4 e e e e e e
+    e 4 e e 4 4 4 e 4 e 4 4 e e e e
+    e e f f f f f f f f f f f f e e
+    e f c c c c c c c c c c c f f e
+    e f c f f f f f f f f f c f f e
         `)
+        /*
     coinAnimation.addAnimationFrame(img`
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
@@ -209,6 +210,7 @@ function initializeCoinAnimation () {
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `)
+        */
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Coin, function (sprite, otherSprite) {
     otherSprite.destroy(effects.trail, 250)
@@ -827,7 +829,7 @@ function initializeCoins() {
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    `, SpriteKind.Coin);
+    `);
 
     coins.push(img`
     . . . . . . . . . . . . . . . .
@@ -846,7 +848,7 @@ function initializeCoins() {
     . . f f f f f f f f f f f f . .
     . f c c c c c c c c c c c f f .
     . f c f f f f f f f f f c f f . 
-    `, SpriteKind.Coin);
+    `);
     
 
 }
@@ -857,16 +859,21 @@ function spawnGoals() {
     let maxCoinIndex = coins.length;
 
     for (let value7 of tiles.getTilesByType(assets.tile`tile5`)) {
-        coin = sprites.create(coins[coinIndex])
+        coin = sprites.create(coins[coinIndex], SpriteKind.Coin)
         tiles.placeOnTile(coin, value7)
-        animation.attachAnimation(coin, coinAnimation)
+        //animation.attachAnimation(coin, coinAnimation)
         animation.setAction(coin, ActionKind.Idle)
         tiles.setTileAt(value7, assets.tile`tile0`)
+
+        coinIndex++
+        if (coinIndex >= maxCoinIndex-1) {
+            coinIndex = 0
+        }
     }
 }
 let heroFacingLeft = false
 let coin: Sprite = null
-let coins: Sprite[] = []
+let coins: Image[] = []
 let playerStartLocation: tiles.Location = null
 let flier: Sprite = null
 let bumper: Sprite = null
