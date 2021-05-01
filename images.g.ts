@@ -24,22 +24,22 @@ namespace myImages {
 `;
 
 case "bunnyrabbit_collin_sparkles": return img`
-    e e e e e e e e e e e e e e e e
-    e e e e e e e e e e e e e e e e
-    e e e e e e d d 4 4 4 e e e e e
-    e e e e e d d 4 4 4 4 e e e e e
-    e e e e d 4 4 e 4 e 4 e 4 e e e
-    e e e d e e 4 4 f 4 4 e e e e e
-    e e d e e e 4 4 4 4 e e e e 4 e
-    e e d e e e e 4 4 e e e e e 4 e
-    e d 4 e e d 4 4 4 4 4 e e e e 4
-    e 4 4 e d 4 e 4 4 4 e 4 e e e 4
-    4 4 e e d 4 4 4 4 4 4 4 e e e 4
-    d 4 e e e 4 e 4 4 4 e e e e e e
-    e 4 e e 4 4 4 e 4 e 4 4 e e e e
-    e e f f f f f f f f f f f f e e
-    e f c c c c c c c c c c c f f e
-    e f c f f f f f f f f f c f f e
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . d d 4 4 4 . . . . .
+    . . . . . d d 4 4 4 4 . . . . .
+    . . . . d 4 4 . 4 . 4 . 4 . . .
+    . . . d . . 4 4 f 4 4 . . . . .
+    . . d . . . 4 4 4 4 . . . . 4 .
+    . . d . . . . 4 4 . . . . . 4 .
+    . d 4 . . d 4 4 4 4 4 . . . . 4
+    . 4 4 . d 4 . 4 4 4 . 4 . . . 4
+    4 4 . . d 4 4 4 4 4 4 4 . . . 4
+    d 4 . . . 4 . 4 4 4 . . . . . .
+    . 4 . . 4 4 4 . 4 . 4 4 . . . .
+    . . f f f f f f f f f f f f . .
+    . f c c c c c c c c c c c f f .
+    . f c f f f f f f f f f c f f .
     `;
             
             case "image2":
