@@ -808,26 +808,56 @@ function initializeLevel (level: number) {
 function hasNextLevel () {
     return currentLevel != levelCount
 }
-function spawnGoals () {
+
+function initializeCoins() {
+    coins.push(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . f f f f . . . . . . 
+    . . . . f f 5 5 5 5 f f . . . . 
+    . . . . f 5 5 5 5 5 5 f . . . . 
+    . . . f 5 5 5 4 4 5 5 5 f . . . 
+    . . . f 5 5 5 4 4 5 5 5 f . . . 
+    . . . f 5 5 5 4 4 5 5 5 f . . . 
+    . . . f 5 5 5 4 4 5 5 5 f . . . 
+    . . . . f 5 5 5 5 5 5 f . . . . 
+    . . . . f f 5 5 5 5 f f . . . . 
+    . . . . . . f f f f . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.Coin);
+
+    coins.push(img`
+    . . . . . . . . . . . . . . . .
+    . . . . . . . . . . . . . . . .
+    . . . . . . d d 4 4 4 . . . . .
+    . . . . . d d 4 4 4 4 . . . . .
+    . . . . d 4 4 . 4 . 4 . 4 . . .
+    . . . d . . 4 4 f 4 4 . . . . .
+    . . d . . . 4 4 4 4 . . . . 4 .
+    . . d . . . . 4 4 . . . . . 4 .
+    . d 4 . . d 4 4 4 4 4 . . . . 4
+    . 4 4 . d 4 . 4 4 4 . 4 . . . 4
+    4 4 . . d 4 4 4 4 4 4 4 . . . 4
+    d 4 . . . 4 . 4 4 4 . . . . . .
+    . 4 . . 4 4 4 . 4 . 4 4 . . . .
+    . . f f f f f f f f f f f f . .
+    . f c c c c c c c c c c c f f .
+    . f c f f f f f f f f f c f f . 
+    `, SpriteKind.Coin);
+    
+
+}
+function spawnGoals() {
+    initializeCoins()
+
+    let coinIndex = 0;
+    let maxCoinIndex = coins.length;
+
     for (let value7 of tiles.getTilesByType(assets.tile`tile5`)) {
-        coin = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . f f f f . . . . . . 
-            . . . . f f 5 5 5 5 f f . . . . 
-            . . . . f 5 5 5 5 5 5 f . . . . 
-            . . . f 5 5 5 4 4 5 5 5 f . . . 
-            . . . f 5 5 5 4 4 5 5 5 f . . . 
-            . . . f 5 5 5 4 4 5 5 5 f . . . 
-            . . . f 5 5 5 4 4 5 5 5 f . . . 
-            . . . . f 5 5 5 5 5 5 f . . . . 
-            . . . . f f 5 5 5 5 f f . . . . 
-            . . . . . . f f f f . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            `, SpriteKind.Coin)
+        coin = sprites.create(coins[coinIndex])
         tiles.placeOnTile(coin, value7)
         animation.attachAnimation(coin, coinAnimation)
         animation.setAction(coin, ActionKind.Idle)
@@ -836,6 +866,7 @@ function spawnGoals () {
 }
 let heroFacingLeft = false
 let coin: Sprite = null
+let coins: Sprite[] = []
 let playerStartLocation: tiles.Location = null
 let flier: Sprite = null
 let bumper: Sprite = null
